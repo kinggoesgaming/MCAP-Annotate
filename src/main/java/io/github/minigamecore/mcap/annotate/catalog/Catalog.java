@@ -25,11 +25,19 @@
 
 package io.github.minigamecore.mcap.annotate.catalog;
 
+import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.RetentionPolicy.SOURCE;
+
 import org.spongepowered.api.CatalogType;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 
 /**
  * Annotation marking a {@link CatalogType} implementation.
  */
+@Retention(SOURCE)
+@Target(TYPE)
 public @interface Catalog {
 
     /**
