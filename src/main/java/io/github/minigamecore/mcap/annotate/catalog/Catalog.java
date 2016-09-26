@@ -49,14 +49,14 @@ public @interface Catalog {
      *
      * @return The CatalogType class.
      */
-    Class<? extends CatalogType> catalogTypeClass();
+    String catalogTypeClass();
 
     /**
      * The class containing the {@link #field()} for which the {@link CatalogType} value has to be changed.
      *
      * @return The container class.
      */
-    Class containerClass();
+    String containerClass();
 
     /**
      * The {@link CatalogType} field name.
