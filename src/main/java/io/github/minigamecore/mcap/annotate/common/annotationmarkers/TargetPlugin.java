@@ -23,52 +23,37 @@
  * THE SOFTWARE.
  */
 
-package io.github.minigamecore.mcap.annotate.catalog;
+package io.github.minigamecore.mcap.annotate.common.annotationmarkers;
 
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import org.spongepowered.api.CatalogType;
+import org.spongepowered.api.plugin.Plugin;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Annotation marking a {@link CatalogType} implementation.
+ * Marker for activating and deactivating checks for various annotation processors at the {@link Plugin} level.
  */
 @Documented
 @Retention(SOURCE)
 @Target(TYPE)
-public @interface Catalog {
+public @interface TargetPlugin {
 
     /**
-     * The {@link CatalogType} class.
+     * Activate {@link CatalogType} mapping for the plugin.
      *
      * <p>
-     *     Cannot be a {@link CatalogType} already provided by Sponge.
+     *     In case of multiple plugins in one project, only one plugin class
+     *     should have this set to true, as plugin mapping can only be processed
+     *     for one plugin. The compilation will fail otherwise.
      * </p>
      *
-     * @return The CatalogType class.
+     * @return {@code true} if active, false otherwise.
      */
-    String catalogTypeClass();
-
-    /**
-     * The class containing the {@link #field()} for which the {@link CatalogType} value has to be changed.
-     *
-     * @return The container class.
-     */
-    String containerClass();
-
-    /**
-     * The {@link CatalogType} field name.
-     *
-     * <p>
-     *     The field should have {@code public static final} modifiers.
-     * </p>
-     *
-     * @return The field name.
-     */
-    String field();
+    boolean catalog() default false;
 
 }

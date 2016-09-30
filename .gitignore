@@ -6,6 +6,7 @@
 build/
 gradle-app.setting
 !gradle-wrapper.jar
+hs_err_pid*.log
 
 # Eclipse
 bin/
@@ -14,10 +15,3 @@ local.properties
 .settings/
 .project
 .factorypath
-
-# SpongeStart (IntelliJ users only)
-run/
-
-# MinigameCore
-apiver.txt
-sapiver.txt
